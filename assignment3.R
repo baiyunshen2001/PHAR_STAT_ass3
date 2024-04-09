@@ -28,6 +28,6 @@ data3=data|>
   group_by(PATIENT)|>
   filter(DAY==max(DAY))
 DATA=left_join(data2,data3,by="PATIENT",keep=NULL)
-model2=lm(PHYASMT.y~CENTER.x+TRT.x+PHYASMT.x,data = DATA)
+model2=lm(HAQ.y~TRT.x+CENTER.x+HAQ.x,data = DATA)
 summary(model2)
 anova(model2)
